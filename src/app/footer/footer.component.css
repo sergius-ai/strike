@@ -1,0 +1,12 @@
+.container {
+  margin: auto;
+  max-width: 1200px;
+  display: grid;
+  grid-template-columns: 60% 50%;
+  align-items: center;
+  padding: 10px 0;
+}
+
+.right {
+
+}
