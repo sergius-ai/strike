@@ -1,6 +1,6 @@
-import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { NgModule } from '@angular/core';
+import { FormsModule ,ReactiveFormsModule} from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -8,7 +8,10 @@ import { FooterComponent } from './footer/footer.component';
 import { HeaderComponent } from './header/header.component';
 import { MainComponent } from './main/main.component';
 import { NavComponent } from './nav/nav.component';
+import { UserService } from './shared/user.service';
+
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
 
 import { HttpClientModule }   from '@angular/common/http';
 
@@ -56,10 +59,17 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import {OverlayModule} from '@angular/cdk/overlay';
 
-import { AngularYandexMapsModule, YaConfig } from 'angular8-yandex-maps';
-import { PointComponent } from './point/point.component';
-import { CardComponent } from './card/card.component';
+import { AngularYandexMapsModule, YaConfig } from "angular8-yandex-maps";
+import { GoogleMapsModule } from '@angular/google-maps';
+import { CommonModule } from '@angular/common';
+import { HttpClientJsonpModule } from '@angular/common/http';
 
+const mapConfig: YaConfig = {
+
+
+  apikey: "",
+  lang: "uk_UA"
+};
 
 @NgModule({
   declarations: [
@@ -67,17 +77,19 @@ import { CardComponent } from './card/card.component';
     FooterComponent,
     HeaderComponent,
     MainComponent,
-    NavComponent,
-    PointComponent,
-    CardComponent
+    NavComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
+    ReactiveFormsModule,
 
+    CommonModule,
+    GoogleMapsModule,
     HttpClientModule,
+    HttpClientJsonpModule,
 
     A11yModule,
     ClipboardModule,
@@ -124,10 +136,10 @@ import { CardComponent } from './card/card.component';
     PortalModule,
     ScrollingModule,
 
-    AngularYandexMapsModule,
+    AngularYandexMapsModule.forRoot(mapConfig),
 
   ],
-  providers: [],
-  bootstrap: [AppComponent,CardComponent]
+  providers: [UserService],
+  bootstrap: [AppComponent]
 })
 export class AppModule { }

@@ -2,20 +2,30 @@
 body {margin: 0;}
 
 app-header .container {
-  padding: 20px;
+
+  padding: 10px;
+  align-items: center;
   text-align: center;
-  background: #1cdab5;
-
+  background: #a9bfc4;
+}
+app-header .logo {
+  float: left;
+}
+app-header .text {
+  padding-right: 100px;
+  color: white;
 }
 
-
-app-nav .container {
+app-main .pad {
+  padding-right: 5px
+}
+app-main .navontainer {
 
 }
-app-nav .example-spacer {
+app-main .example-spacer {
   flex: 1 1 auto;
 }
-app-nav hr {
+app-main hr {
   border:1px solid gray;
   margin: 0 20px 0 20px;
 }
@@ -42,12 +52,18 @@ app-main .container {
 .example-card {
   max-width: 300px;
 }
-
-
+.example-card1 {
+  max-width: 300px;
+  color: green;
+}
+.checkbox {
+  padding: 5px;
+  align-items: center;
+}
 
 .map {
   height: 528px;
-
+  width: inherit;
 }
 .map1 {
   display: none;
@@ -76,4 +92,4 @@ app-footer {
 }
 
 html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+body { margin: 0; font: "Zen Dots";font-family: 'Righteous', cursive;}
